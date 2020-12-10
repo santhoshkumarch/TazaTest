@@ -20,6 +20,8 @@ export class SidenavComponent implements OnInit {
   content: string;
   contentImg: string;
   contentTitle: string;
+  isClicked: boolean= true;
+  mainTitle: string;
   constructor(
     private courseService: CourseService,
     private router: Router
@@ -37,9 +39,13 @@ export class SidenavComponent implements OnInit {
     console.log('df', this.courses)
   }
   getMain(){
+    this.isClicked =  true;
     this.router.navigateByUrl('');
+    
   }
   getContent(lesson){
+    this.isClicked = false;
+    this.mainTitle = 'Introduction';
     sessionStorage.setItem("lessonName", lesson.lesson);
     this.lessonName = lesson.lesson;
     if(this.lessonName == 'Computers'){

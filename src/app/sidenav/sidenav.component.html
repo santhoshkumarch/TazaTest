@@ -2,8 +2,9 @@
   <button mat-icon-button (click)="isExpanded = !isExpanded">
     <mat-icon>menu</mat-icon>
   </button>
-  <h1 class="example-app-name">Tazapay Test</h1>
-  <h1></h1>
+  <h1 class="example-app-name" *ngIf="isClicked">Tazapay Test</h1>
+  <h1 class="example-app-name" *ngIf="!isClicked">{{mainTitle}} / {{lessonName}}</h1>
+  
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
   <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
