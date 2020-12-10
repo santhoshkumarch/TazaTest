@@ -36,7 +36,9 @@ export class SidenavComponent implements OnInit {
     this.courseService.getCourses().subscribe( courses => this.courses = courses); 
     console.log('df', this.courses)
   }
-
+  getMain(){
+    this.router.navigateByUrl('');
+  }
   getContent(lesson){
     sessionStorage.setItem("lessonName", lesson.lesson);
     this.lessonName = lesson.lesson;
