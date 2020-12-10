@@ -1,0 +1,58 @@
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="example-app-name">Tazapay Test</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
+    <mat-nav-list >
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Intro to Programming</span>
+        <mat-icon class="menu-button" [ngClass]="{ rotated: showSubmenu }" *ngIf="isExpanded || isShowing">add
+        </mat-icon>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{ expanded: showSubmenu }" *ngIf="isShowing || isExpanded">
+        
+<mat-list *ngFor="let item of courses">
+  <mat-list-item (click)="showSubSubMenu1 = !showSubSubMenu1" class="parent" >
+  
+    <span class="full-width" *ngIf="isExpanded || isShowing">{{item.parentName}}</span>
+    <mat-icon class="menu-button" [ngClass]="{ rotated: showSubSubMenu1 }" *ngIf="isExpanded || isShowing">
+      add</mat-icon>
+  </mat-list-item>
+  <div class="submenu" [ngClass]="{ expanded: showSubSubMenu1 }" *ngIf="isShowing || isExpanded">
+    <mat-list *ngFor="let list of item.children">
+      <mat-list-item (click) = "getContent(list)">
+        {{list.lesson}}
+      </mat-list-item>
+    </mat-list>
+   
+  </div>
+</mat-list>
+      </div>
+    </mat-nav-list>
+    <mat-nav-list> </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
+
+<!-- <mat-list *ngFor="let item of courses">
+  <mat-list-item (click)="showSubSubMenu1 = !showSubSubMenu1" class="parent" >
+  
+    <span class="full-width" *ngIf="isExpanded || isShowing">{{item.parentName}}</span>
+    <mat-icon class="menu-button" [ngClass]="{ rotated: showSubSubMenu1 }" *ngIf="isExpanded || isShowing">
+      add</mat-icon>
+  </mat-list-item>
+  <div class="submenu" [ngClass]="{ expanded: showSubSubMenu1 }" *ngIf="isShowing || isExpanded">
+    <mat-list *ngFor="let list of item.children">
+      <mat-list-item (click) = "getContent(list)">
+        {{list.lesson}}
+      </mat-list-item>
+    </mat-list>
+   
+  </div>
+</mat-list> -->
