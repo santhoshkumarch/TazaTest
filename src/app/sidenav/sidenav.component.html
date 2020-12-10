@@ -9,8 +9,8 @@
 <mat-sidenav-container class="example-container" autosize>
   <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true">
     <mat-nav-list >
-      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
-        <span class="full-width" *ngIf="isExpanded || isShowing" (click)="getMain()">Intro to Programming</span>
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" *ngFor="let item of courses" (click)="getMain(item)">
+        <span class="full-width" *ngIf="isExpanded || isShowing">{{item.mainParentName}}</span>
         <mat-icon class="menu-button" [ngClass]="{ rotated: showSubmenu }" *ngIf="isExpanded || isShowing">expand_more
         </mat-icon>
       </mat-list-item>
@@ -19,7 +19,7 @@
 <mat-list *ngFor="let item of courses">
   <mat-list-item (click)="showSubSubMenu1 = !showSubSubMenu1" class="parent" >
   
-    <span class="full-width" *ngIf="isExpanded || isShowing">{{item.parentName}}</span>
+    <span class="full-width" *ngIf="isExpanded || isShowing" (click) = "parentName(item)">{{item.parentName}}</span>
     <mat-icon class="menu-button" [ngClass]="{ rotated: showSubSubMenu1 }" *ngIf="isExpanded || isShowing">
       expand_more</mat-icon>
   </mat-list-item>

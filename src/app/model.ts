@@ -4,7 +4,8 @@ export class Courses {
     parent: boolean;
     parentName: string;
     name: string;
-    content: string
+    content: string;
+    mainParentName: string
   }
   
   export class Children{

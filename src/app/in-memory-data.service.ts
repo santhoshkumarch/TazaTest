@@ -5,7 +5,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const course_data = [
       {
-          id: 1, parent: true, parentName: 'Introduction', name: 'section1', content: '',
+          id: 1, parent: true, parentName: 'Introduction', name: 'section1', content: '', mainParentName: 'Intro to Programming',
           children: [
             {
             id: 1,
